@@ -1,4 +1,4 @@
-// POST
+// Vanilla POST request
 
 const xhr = new XMLHttpRequest();
 const url = 'https://api-to-call.com/endpoint';
@@ -41,7 +41,7 @@ $.ajax({
   }
 });
 
-// fetch get request
+// fetch GET request
 
 fetch('https://api-to-call.com/endpoint').then(response => {
 		if (response.ok) {
@@ -67,3 +67,20 @@ fetch('https://api-to-call.com/endpoint', {
 	}
 	throw new Error('Request failed!');
 }, networkError => console.log(networkError.message)).then(jsonResponse => jsonResponse);
+
+// async GET request
+
+async function getData() {
+  try {
+    let response = await fetch('https://api-to-call.com/endpoint');
+    if (response.ok) {
+      let jsonResponse = await response.json();
+      return jsonResponse;
+
+    }
+    throw new Error('Request failed');
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
