@@ -12,3 +12,17 @@ xhr.onreadystatechange = function() {
 }
 xhr.open('POST', url);
 xhr.send(data);
+
+// jQuery GET request
+
+$.ajax({
+  url: 'https://api-to-call.com/endpoint',
+  type: 'GET',
+  dataType: 'json',
+  success(response) {
+  	console.log(response);
+	},
+  error(jqXHR, status, errorThrown) {
+    console.log(jqXHR);
+  }
+});
